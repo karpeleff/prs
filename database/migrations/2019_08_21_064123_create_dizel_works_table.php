@@ -16,8 +16,8 @@ class CreateDizelWorksTable extends Migration
         Schema::create('dizel_works', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('start');
-            $table->integer('stop');
+            $table->char('start');
+            $table->char('stop');
             $table->char('type', 100);
         });
     }

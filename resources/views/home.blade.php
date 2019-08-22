@@ -33,18 +33,20 @@
 
                 <div class="panel-body">
                 
-                <form class="form-inline" action="/">
+                <form class="form-inline" method="post" action="/addtime">
                 
-                <label class="radio-inline"><input type="radio" name="optradio" checked>ADR16.5</label>
+                {{csrf_field()}}
                 
-                <label class="radio-inline"><input type="radio" name="optradio">SD6000E</label>
+                <label class="radio-inline"><input type="radio" name="type"  value="ADR16.5" checked>ADR16.5</label>
+                
+                <label class="radio-inline"><input type="radio" name="type" value="SD6000E" >SD6000E</label>
                  <br />
                  <br />
    
         <div >
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' class="form-control" placeholder="старт" />
+                    <input type='text' class="form-control" placeholder="старт"   name="start" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -64,7 +66,7 @@
     <div >
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker3'>
-                    <input type='text' class="form-control" placeholder="стоп"/>
+                    <input type='text' class="form-control" placeholder="стоп"  name="stop"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
