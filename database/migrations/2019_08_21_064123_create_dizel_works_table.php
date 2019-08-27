@@ -19,6 +19,7 @@ class CreateDizelWorksTable extends Migration
             $table->char('start');
             $table->char('stop');
             $table->char('type', 100);
+            $table->char('reason', 100);
         });
     }
 
