@@ -20,5 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/addtime', 'HomeController@addTime');
+Route::get('/addtime', 'HomeController@addTime');
 
 Route::post('/newdoc', 'HomeController@newDoc');
+
+Route::get('/test', 'HomeController@test');
+
+Route::match(['get','post'],'/add_type' , 'StorageController@addComponentType');
+Route::match(['get','post'],'/add_component' , 'StorageController@addComponent');
+Route::match(['get','post'],'/searchcomponent' , 'StorageController@searchComponent');
+Route::get('/xls', 'HomeController@xls');

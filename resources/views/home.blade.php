@@ -8,13 +8,18 @@
                 <div class="panel-heading">Рабочий стол</div>
 
                 <div class="panel-body">
+                
+                
                     {!! Table::generateModel(
        [ 'Дизель', 'Старт','Стоп','причина'],  // Column for table
        'App\Models\DizelWork' // Model
        ,['type', 'start', 'stop','reason'], // Fields from model
-       0, // Pagination Limit, if 0 all will show
+       3, // Pagination Limit, if 0 all will show
        'class="table table-striped"' // Attributes sample js/css
-       ) !!}  
+       ) !!} 
+       
+    
+         {{ Table::links() }} 
                 </div>
             </div>
         </div>
@@ -23,9 +28,8 @@
                 <div class="panel-heading">Панель Управления</div>
 
                 <div class="panel-body">
-                   
+           
 
-                    You are logged in!
                 </div>
             </div>
             <div class="panel panel-default">
@@ -40,7 +44,7 @@
   
         <div class="form-group">
             <div class='input-group date' id='datetimepicker16'>
-                <input type='text' class="form-control" name="period" />
+                <input type='text' class="form-control" name="period" required  />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar">
                     </span>
@@ -64,7 +68,7 @@
   
   <select class="form-control" >
     <option>План работ</option>
-    <option>2</option>
+    <option>Огнетушители-Таблички</option>
     <option>3</option>
     <option>4</option>
   </select>
@@ -87,7 +91,7 @@
                 
                 <form class="form-inline" method="post" action="/addtime">
                 
-                
+                {{csrf_field()}}
                 
                 <label class="radio-inline"><input type="radio" name="type"  value="ADR16.5" checked>ADR16.5</label>
                 
@@ -104,7 +108,7 @@
       
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' class="form-control" placeholder="старт"   name="start" />
+                    <input type='text' class="form-control" placeholder="старт"   name="start" required />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -125,7 +129,7 @@
   
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker3'>
-                    <input type='text' class="form-control" placeholder="стоп"  name="stop"/>
+                    <input type='text' class="form-control" placeholder="стоп"  name="stop" required/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -157,7 +161,7 @@
   
         <div class="form-group">
             <div class='input-group date' id='datetimepicker10'>
-                <input type='text' class="form-control" name="period" />
+                <input type='text' class="form-control" name="period" required />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar">
                     </span>

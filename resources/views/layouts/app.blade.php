@@ -49,6 +49,45 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
+                    
+          <ul class="nav navbar-nav navbar-left">
+                        <!-- Authentication Links -->
+                        
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-expanded="false" aria-haspopup="true" v-pre>
+                                  menu  <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="add_type">
+                                           add Type
+                                        </a>
+                                        <a href="add_component">
+                                            add Component
+                                        </a>
+                                        <a href="/searchcomponent">
+                                           Search
+                                        </a>
+
+                                        
+                                    </li>
+                                </ul>
+                            </li>
+                       
+                    </ul>
+         
+        
+        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
