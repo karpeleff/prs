@@ -22,6 +22,7 @@ class CreateFiresTable extends Migration
             $table->integer('manufactory_number');
             $table->integer('inv_number');
             $table->char('stuff_type', 100);
+           
         });
     }
 

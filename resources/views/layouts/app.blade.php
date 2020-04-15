@@ -69,7 +69,9 @@
                                         <a href="/searchcomponent">
                                            Search
                                         </a>
-
+                                          <a href="/allfire">
+                                           Огнетушители
+                                        </a>
                                         
                                     </li>
                                 </ul>

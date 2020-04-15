@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                 
+          <!-- //https://github.com/lloricode/laravel-html-table   -->    
                 
                     {!! Table::generateModel(
        [ 'Дизель', 'Старт','Стоп','причина'],  // Column for table
