@@ -1,0 +1,62 @@
+    // $itog;
+        // echo CarbonInterval::minutes(1200)->cascade()->total('hours');
+        // echo  $tomorrow = Carbon::now()->addDay();
+
+        // echo CarbonInterval::days(3)->hours(5)->totalHours;
+        //  echo $work_time;
+
+        //$start = Carbon::createFromTime(0, 13, 0, 'GMT');
+       // $stop = Carbon::createFromTime(3, 50, 0, 'GMT');
+
+
+       // $mins = $stop->diffInMinutes($start, true);
+
+       // $hours = $mins / 60;
+
+
+       // $itog = round($hours, 2);
+       // echo $itog;
+       //$helper = new Sample();
+      // error_reporting(E_ALL);
+      
+      
+      $file = file_get_contents('people.txt');
+      
+      $sheetData = unserialize($file);
+      
+      
+     // echo $sheetData[16]['C'];  //январь  17-21     D -1   AH -31
+     
+     
+     $day = 'M';
+     
+     $i = 1;
+     
+     $a = $i+4;
+      
+     for ($i; $i <= $a; $i++)
+      {
+        echo $sheetData[$i]['A'];
+        
+        switch ($sheetData[$i][$day]) {
+    case null:
+        echo " Выходной";                 break;
+    case 'Н':
+        echo " Ночная смена";             break;
+    case 'Д':
+        echo " Дневная смена";            break;
+    case'ОТ' :
+        echo " Отпуск";                   break;
+    case 'д/ов':
+        echo " Денвная смена оплаченный"; break;
+    case 'ПК':
+        echo " Курсы";                    break;
+    case 'ОВ':
+        echo " Оплаченный выходной";      break;
+    case 'Н"':
+        echo " С ночной смены";           break;
+}
+         echo '<br>';
+       
+      }
+      
