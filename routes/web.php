@@ -21,8 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/addtime', 'HomeController@addTime');
 Route::get('/addtime', 'HomeController@addTime');
-
+//Docs Create
 Route::post('/newdoc', 'HomeController@newDoc');
+Route::get('/monthPlan', 'HomeController@monthPlan');
 
 Route::get('/test', 'HomeController@test');
 

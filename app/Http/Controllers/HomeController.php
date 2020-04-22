@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Helper\Sample;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 use App\Models\DizelWork;
 use App\Models\Diz;
@@ -283,21 +285,7 @@ class HomeController extends Controller
                     $fuel->save();
                    }
                  
-                 
-           
-             
-             
-            
-            
-           
-              
-               
-              
-           // return;
-         
-         //dd($last);
-         
-         
+
          $newTemplate->setValue('itog_sd', $sd);
          $newTemplate->setValue('rashod_adr',$rashod_adr);
          $newTemplate->setValue('rashod_sd', $rashod_sd);
@@ -371,7 +359,11 @@ public function   dellRow($id)
     
 }
 
-public function   draft()
+    /**
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
+    public function   draft()
 {
       $inputFileName = 'doctemplate/template#5.xlsx';
       // $helper->log('Loading file ' . pathinfo($inputFileName, PATHINFO_BASENAME) . ' using IOFactory to identify the format');
@@ -396,5 +388,92 @@ public function   draft()
 }
 
 
+    /**
+     * @throws \PhpOffice\PhpWord\Exception\CopyFileException
+     * @throws \PhpOffice\PhpWord\Exception\CreateTemporaryFileException
+     */
+    public  function  monthPlan()
+{
+    $data = [];
 
+    $tuesday = $this->getTuesday(2020,9);
+
+    if(count($tuesday) == 5)//если в месяце пять вторников ,убираем первый
+    {
+        $tuesday = array_slice($tuesday,1);
+    }
+
+    $templateProcessor = new TemplateProcessor('doctemplate/template#4.docx');
+    $templateProcessor->setValues(
+        [   'td_1' => $tuesday[0],
+            'td_2' => $tuesday[1],
+            'td_3' => $tuesday[2],
+            'td_4' => $tuesday[3],
+            'last_day' => $tuesday[6],
+            'month_str' => 'апрель',
+            'month_int' => 20,
+            'year'=> 2020
+
+        ]);
+
+    $templateProcessor->saveAs("docs/План работ ОПРС Богуславец на  " . $data['month_str'] . ".docx");
+}
+
+
+    /**
+     * @param $year
+     * @param $month
+     * @return array
+     * @throws \Exception
+     */
+    public  function getTuesday($year, $month): array
+    {
+        $instans = new DateTime();
+
+        $instans->setDate($year,$month, 1);
+
+        $lastDay  = $instans->format('t');
+
+        $tuesday = [];
+
+        for($i = 1; $i <= $lastDay;$i++ )
+        {
+            $instans->setDate($year,$month,$i);
+
+            if($instans->format('N') == 2){
+
+                $tuesday[] = $i;
+            }
+
+        }
+              $tuesday[6]  = $lastDay;
+
+              return  $tuesday;
+
+    }
+
+    public  function workShift()
+    {
+        $file = file_get_contents('doctemplate/graff/1_kv.txt');
+
+        $file = json_decode( $file,true);
+        //2020-03-26 12:53/ var_dump($file);
+
+
+
+        echo '<br>';
+        echo $file[0][0];//месяц
+        echo '<br>';
+        echo $file[6][0];//месяц
+        echo '<br>';
+        echo $file[12][0];//месяц
+        echo '<br>';
+        echo $file[1][0];//фамилия
+        echo '<br>';
+        echo $file[6][0];//месяц
+        echo '<br>';
+        echo $file[1][1];//смена
+//1-
+
+    }
 }
