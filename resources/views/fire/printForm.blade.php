@@ -3,15 +3,10 @@
 
 table {
   width: 350px;
- 
 }
-
 .fire{
-
 float: left;
-
 }
-
 
 .tg td{font-family:Times New Roman;
   text-align: center;
@@ -29,14 +24,11 @@ float: left;
 }
 .tg-my{
    padding-bottom: 30px;
-
 }
-
 </style>
 
 @foreach ($data as $item)
-   
-    
+       
   <div class="fire"  >
   <table class="tg">
   <tr>
@@ -45,7 +37,7 @@ float: left;
   <tr>
     <td class="tg-lboi">Осмотр огнетушителя {{$item->model}} № {{$item->inv_number}}
 снаружи
-20.03.20
+29.06.20
 Вес: {{$item->weight}} кг.
 </td>
     <td class="tg-lboi">Проверка качества ОТВ 19.12.2019 г.;
@@ -61,13 +53,13 @@ float: left;
   </tr>
   <tr>
     <td class="tg-my" colspan="2" rowspan="2"> ВЦ ОВД ОПРС Богуславец. 
-Техник  РН. РЛ и связи Карпелев А.А.
+Техник  РН. РЛ и связи Миронов А.В.
 </td>
     <td class="tg-lboi"> Дата проведения следующего испытания огнетушителя
 </td>
   </tr>
   <tr>
-    <td class="tg-lboi"> июнь 2020 г</td>
+    <td class="tg-lboi"> август 2020 г</td>
   </tr>
 </table>
 
